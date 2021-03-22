@@ -2,11 +2,16 @@ package com.example.maskkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maskkotlin.model.Store
+import com.example.maskkotlin.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
+    // ktx 사용
+    private val viewModel : MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,14 +28,6 @@ class MainActivity : AppCompatActivity() {
             adapter = storeAdapter
         }
 
-        val items = listOf(
-            Store("abc", "111", "111", 33.33, 33.33, "약국", "plenty", "33", "33"),
-            Store("abc", "111", "111", 33.33, 33.33, "약국", "plenty", "33", "33"),
-            Store("abc", "111", "111", 33.33, 33.33, "약국", "plenty", "33", "33"),
-            Store("abc", "111", "111", 33.33, 33.33, "약국", "plenty", "33", "33")
-        )
-
-        storeAdapter.updateItems(items)
 
     }
 }
