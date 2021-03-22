@@ -7,10 +7,12 @@ import retrofit2.http.Query
 
 interface MaskService {
     @GET("sample.json/?m=5000")
-    fun fetchStoreInfo(
+    // 오랫동안 비동기로 작동할 코드
+    // suspend
+    suspend fun fetchStoreInfo(
         @Query("lat") lat: Double,
         @Query("lng") lng: Double
-        ): Call<StoreInfo>
+        ): StoreInfo
 
     // 상수가 저장되는 객체
     companion object {
